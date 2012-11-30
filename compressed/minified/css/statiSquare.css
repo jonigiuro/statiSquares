@@ -1,0 +1,43 @@
+
+.block{
+	float: left;
+	background-color: #888;
+	border-radius: 50%;
+}
+
+.block.active{
+	background-color:#BADA55;
+}
+.block:hover{
+	box-shadow:0 0 5px 0 rgba(0,0,0,.7);
+}
+.statiSquare-single{
+	overflow:hidden;
+}
+.statiSquare-map{
+	position:absolute;
+	outline:1px solid #fff;
+}
+.statiSquare-map:hover{
+	box-shadow:0 0 10px 0 rgba(0,0,0,.7);
+}
+
+.statiSquare-bars{
+	outline:1px solid #fff;
+	float:left;
+}
+.statiSquare-bars:hover{
+	box-shadow:0 0 10px 0 rgba(0,0,0,.7);
+}
+#example-3,
+#example-4{
+	position:relative;
+}
+.value-label{
+	padding:5px;
+	color:#fff;
+	font-size:10px;
+	display:block;
+	background:rgba(0,0,0,.7);
+	cursor:default;
+}

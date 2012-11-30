@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>StatiSquares</title>
+		<meta name="viewport" content="width=device-width">
+		<link href="css/bootstrap.min.css" media="all" rel="stylesheet" />
+		<link href='http://fonts.googleapis.com/css?family=Archivo+Narrow:400,400italic,700,700italic' rel='stylesheet' type='text/css'>
+		<link href="css/page.css" media="all" rel="stylesheet" />
+		<link href="css/statiSquare.css" media="all" rel="stylesheet" />
+	</head>
+
+	<body>
+		<nav id="navbar">
+			<div class="container">
+				<h1 class="logo">
+					<img src="img/logo.jpg" alt="logo">
+				</h1>
+				<ul class="navigation">
+					<li class="nav-item active what-nav"><a class="link internal" href="what-container">What is it?</a></li>
+					<li class="nav-item">|</li>
+					<li class="nav-item how-nav"><a class="link internal" href="how-container">How do I use it?</a></li>
+					<li class="nav-item">|</li>
+					<li class="nav-item where-nav"><a class="link internal" href="where-container">Where can I get it?</a></li>
+				</ul>
+			</div>
+		</nav>
+		<div id="slider" class="outer">
+			<div class="inner-container">
+				<!-- WHAT IMAGE -->
+				<div class="inner what">
+					<div class="container">
+						<div class="information">
+							<h2 class="title">
+								Your statistics
+							</h2>
+							<h3 class="subtitle">
+								In one line of JavaScript
+							</h3>
+						</div>
+					</div>
+				</div>
+
+				<!-- HOW IMAGE -->
+				<div class="inner how">
+					<div class="container">
+						<div class="information">
+							<h2 class="title">
+								Plug and play
+							</h2>
+							<h3 class="subtitle">
+								one line of <span class="code">html</span>, one line of <span class="code">JavaScript</span> and you're good to go ;)
+							</h3>
+						</div>
+					</div>
+				</div>
+
+				<!-- WHERE IMAGE -->
+				<div class="inner where">
+					<div class="container">
+						<div class="information">
+							<h2 class="title">
+								Interested?
+							</h2>
+							<h3 class="subtitle">
+								get it from <a href="http://www.zhereicome.com/experiments/statics/statisquares/compressed/minified.rar" class="btn btn-green">here</a>
+							</h3>
+						</div>
+					</div>
+				</div>
+			</div>
+
+		</div>
+		<div id="wrapper">
+
+			<!-- WHAT -->
+			<div class="step what-container">
+				<div class="description">
+					<h2 class="title">
+						It's a lightweight statistics visualizer plugin for jQuery
+					</h2>
+					<p class="text">
+						It's easily set up with a couple of <span class="code">span</span> elements (one for each value, actually) and one line of javascript for initialization.<br />
+						Other than that you can just sit down and relax, it'll do all the work for you.<br />
+						It comes with five built-in color schemes (plus one that generates colors randomly) and six visualization method, but it's open to personaliation for new colors or interactions.
+					</p>
+				</div>
+				<div class="image-box">
+					<img class="image" src="img/quest.png" alt="question mark">
+				</div>
+			</div>
+
+			<!-- HOW -->
+			<div class="step how-container">
+				<div class="floated-row inverse">
+					<div class="image-box">
+						<img class="image" src="img/quest-how.png" alt="question mark">
+					</div>
+					<div class="description">
+						<h2 class="title">
+							Is it complicated?
+						</h2>
+						<p class="text">
+							<strong>Not at all!</strong> It's easily set up with a couple of <span class="code">span</span> elements (one for each value, actually) and one line of JavaScript for initialization (which can easily be copy-pasted from this site).<br />
+							Other than that you can just sit down and relax, it'll do all the work for you.<br />
+							It comes with four built-in color schemes and four visualization methods but it's open to personaliation for new colors or interactions.
+						</p>
+					</div>
+				</div>
+				<div class="full-row">
+					<h4 class="title">
+						Implementation
+					</h4>
+					<p class="text">
+						First you need to import jQuery and statisquares at the bottom of your <span class="code">&lt;body></span> tag:
+					</p>
+					<pre><code>&lt;script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js">&lt;/script>
+&lt;script src="js/statiSquare.min.js">&lt;/script></code></pre>
+					<br />
+					<p class="text">
+						Then import the statiSquare stylesheet in your <span class="code">&lt;head></span> tag:
+					</p>
+					<pre><code>&lt;link href="css/statiSquare.css" media="all" rel="stylesheet" />&lt;/script></code></pre>
+					<br />
+					<p class="text">
+						And finally create the requested markup. All the following examples are based on the same html markup (except for the example's container <span class="code">ID</span>), it is as follows:
+					</p>
+					<pre><code>&lt;div id="example-<em>n</em>" class="single-example">
+	&lt;span class="statiSquare-value">15%&lt;/span>
+	&lt;span class="statiSquare-value">30%&lt;/span>
+	&lt;span class="statiSquare-value">20%&lt;/span>
+	&lt;span class="statiSquare-value">15%&lt;/span>
+	&lt;span class="statiSquare-value">10%&lt;/span>
+	&lt;span class="statiSquare-value">10%&lt;/span>
+&lt;/div></code></pre>
+				<br />
+				<p class="text">
+					You need a set of elements with a <span class="code">value</span>You can set percentages on your own or let the script do the dirty job; if the total of the values is not 100 it will assume the data is not percentage and convert it accordingly.
+				</p>
+				<p class="text">
+					All the markup you'll need is:<br />a container
+				</p>
+					<pre><code><span class="code">&lt;div id="example-<em>n</em>" class="single-example"></span></code></pre><br />
+				<p class="text">
+					And a line of JavaScript to let the script do its magic, for example:<br /><br />
+				</p>
+					<pre><code><span class="code">$('#example-<em>n</em>').statiSquare({'width' : 200, 'type': 'map', 'theme' : 'aurora', 'hasValue' : true });</span></code></pre>
+				
+
+				
+				<div class="examples">
+					<!--row-->
+					<div class="example-row">
+						<h4 class="title">
+							The best way to learn is to look at some examples, so here we go!
+						</h4>
+						<div class="single-example">
+							
+							<p class="title">
+								Example 1
+							</p>
+							<p class="text">
+								A dotted style graph.<br />
+								No values<br />
+								Theme : bird
+							</p>
+							<div id="example-1" class="example-graph">
+								<span class="value">15%</span>
+								<span class="value">30%</span>
+								<span class="value">20%</span>
+								<span class="value">15%</span>
+								<span class="value">10%</span>
+								<span class="value">10%</span>
+							</div>
+							<div class="query">
+								<p class="text"><span class="code">$('#example-1').statiSquare({'width' : 200, 'type' : 'dots', 'theme' : 'bird'});</span></p>
+							</div>
+						</div>
+						<div class="single-example right">
+							
+							<p class="title">
+								Example 2
+							</p>
+							<p class="text">
+								A vertical style graph.<br />
+								With values<br />
+								Theme : goldfish
+							</p>
+							<div id="example-2" class="example-graph">
+								<span class="value">15%</span>
+								<span class="value">30%</span>
+								<span class="value">20%</span>
+								<span class="value">15%</span>
+								<span class="value">10%</span>
+								<span class="value">10%</span>
+							</div>
+							<div class="query">
+								<p class="text"><span class="code">$('#example-2').statiSquare({'width' : 200, 'type' : 'bars', 'theme' : 'goldfish', 'hasValue' : true, 'sort' : 'descendant'});</span></p>
+							</div>
+						</div>
+					
+						<div class="single-example">
+							
+							<p class="title">
+								Example 3
+							</p>
+							<p class="text">
+								Rectangles.<br />
+								Nein values<br />
+								Theme : aurora
+							</p>
+							<div id="example-3" class="example-graph">
+								<span class="value">15%</span>
+								<span class="value">30%</span>
+								<span class="value">20%</span>
+								<span class="value">15%</span>
+								<span class="value">10%</span>
+								<span class="value">10%</span>
+							</div>
+							<div class="query">
+								<p class="text"><span class="code">$('#example-3').statiSquare({'width' : 200, 'type': 'map', 'theme' : 'aurora',  'sort' : 'none'});</span></p>
+							</div>
+						</div>
+						<div class="single-example right">
+							
+							<p class="title">
+								Example 4
+							</p>
+							<p class="text">
+								Rectangular shapes<br />
+								With values<br />
+								Theme : bright
+							</p>
+							<div id="example-4" class="example-graph">
+								<span class="value">15%</span>
+								<span class="value">30%</span>
+								<span class="value">20%</span>
+								<span class="value">15%</span>
+								<span class="value">10%</span>
+								<span class="value">10%</span>
+							</div>
+							<div class="query">
+								<p class="text"><span class="code">$('#example-4').statiSquare({'width' : 200, 'type': 'map', 'theme' : 'bright', 'hasValue' : true });</span></p>
+							</div>
+						</div>
+					</div>
+					<!--row-->
+					<div class="example-row">
+						<div class="single-example">
+							
+							<p class="title">
+								Example 5
+							</p>
+							<p class="text">
+								Rectangles.<br />
+								Nein values<br />
+								Theme : random
+							</p>
+							<div id="example-5" class="example-graph">
+								<span class="value">15%</span>
+								<span class="value">30%</span>
+								<span class="value">20%</span>
+								<span class="value">15%</span>
+								<span class="value">10%</span>
+								<span class="value">10%</span>
+							</div>
+							<div class="query">
+								<p class="text"><span class="code">$('#example-5').statiSquare({'width' : 200, 'type': 'pie', 'theme' : 'random' });</span></p>
+							</div>
+						</div>
+						<div class="single-example right">
+							
+							<p class="title">
+								Example 6
+							</p>
+							<p class="text">
+								Rectangular shapes<br />
+								With values<br />
+								Theme : random
+							</p>
+							<div id="example-6" class="example-graph">
+								<span class="value">15%</span>
+								<span class="value">30%</span>
+								<span class="value">20%</span>
+								<span class="value">15%</span>
+								<span class="value">10%</span>
+								<span class="value">10%</span>
+							</div>
+							<div class="query">
+								<p class="text"><span class="code">$('#example-6').statiSquare({'width' : 200, 'type': 'ring', 'theme' : 'random' });</span></p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="full-row">
+				<h4 class="title">
+					Options and arguments
+				</h4>
+				<table class="arguments table">
+					<tr class="titles">
+						<td class="single-label arg">
+							Argument name
+						</td>
+						<td class="single-label def">
+							Default value
+						</td>
+						<td class="single-label val">
+							Values
+						</td>
+						<td class="single-label desc">
+							Description
+						</td>
+					</tr>
+					<tr class="values">
+						<td class="single-label">
+							Width &raquo; integer
+						</td>
+						<td class="single-label">
+							150
+						</td>
+						<td class="single-label">
+							any positive integer number
+						</td>
+						<td class="single-label">
+							This value sets the width (in pixels) of the displayed graph. Please note that this graphs are square based so this value also decides the graph's width. Future improvements may include the possibility to also decide a width.
+						</td>
+						</tr>
+						<tr class="values">
+							<td class="single-label">
+								hasValue &raquo; boolean
+							</td>
+							<td class="single-label">
+								false
+							</td>
+							<td class="single-label">
+								true | false
+							</td>
+							<td class="single-label">
+								Show (true) or do NOT show (false) the value of each element in the graph. This attribute only works for bar graphs and map graphs.
+							</td>
+						</tr>
+						<tr class="values">
+							<td class="single-label">
+								type &raquo; string
+							</td>
+							<td class="single-label">
+								"dots"
+							</td>
+							<td class="single-label">
+								"dots" | "map" | "bars" | "pie" | "ring"
+							</td>
+							<td class="single-label">
+								Decides the style of the generated graph. All the styles can be seen on the exmples above. The "Pie" and the "Ring" use the html5 canvas element, so browser support is not guaranteed for older versions.
+							</td>
+						</tr>
+						<tr class="values">
+							<td class="single-label">
+								theme &raquo; string
+							</td>
+							<td class="single-label">
+								"random"
+							</td>
+							<td class="single-label">
+								"aurora" | "bird" | "goldfish" | "sepia" | "bright" | "random" | "custom"
+							</td>
+							<td class="single-label">
+								Sets the color scheme of the generated graph. "Random" will generate a random color for each element. "Custom" won't set the colors, you can do it freely in you stylesheet.
+							</td>
+						</tr>
+						<tr class="values">
+							<td class="single-label">
+								sort &raquo; string
+							</td>
+							<td class="single-label">
+								"ascendant"
+							</td>
+							<td class="single-label">
+								"ascendant" | "descendant" | "none"
+							</td>
+							<td class="single-label">
+								Sorts values in an ascendant or descendant way. If you set it to 'none' (or anything else), the graph will be printed exactly as you wrote in your HTML.
+							</td>
+						</tr>
+				</table>
+			</div>
+		</div>
+
+			<!-- WHERE -->
+			<div class="step where-container">
+				<div class="description">
+					<h2 class="title">
+						Download it!
+					</h2>
+					<p class="text">
+						If you're interested in this project feel free to download the <a href="http://www.zhereicome.com/experiments/statics/statisquares/compressed/developement.rar" class="btn btn-large btn-green">uncompressed version</a> or the <a href="http://www.zhereicome.com/experiments/statics/statisquares/compressed/minified.rar" class="btn btn-large btn-green">minified version</a>
+					</p>
+				</div>
+				<div class="image-box">
+					<img class="image" src="img/quest-where.png" alt="question mark">
+				</div>
+			</div>
+		</div>
+		<!--<script src="js/bootstrap.min.js"></script>-->
+		<script src="js/jquery172.js"></script>
+		<script src="js/page.js"></script>
+		<script src="js/statiSquare.min.js"></script>
+		<script src="js/usage.js"></script>
+	</body>
+	
+
+</html>
