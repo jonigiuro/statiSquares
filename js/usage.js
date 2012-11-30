@@ -1,6 +1,6 @@
-$('#example-1').statiSquare({'width' : 200, 'type' : 'dots', 'theme' : 'bird'});
-$('#example-2').statiSquare({'width' : 200, 'type' : 'bars', 'theme' : 'goldfish', 'hasValue' : true, 'sort' : 'descendant'});
-$('#example-3').statiSquare({'width' : 200, 'type': 'map', 'theme' : 'aurora',  'sort' : 'none'});
-$('#example-4').statiSquare({'width' : 200, 'type': 'map', 'theme' : 'bright', 'hasValue' : true });
-$('#example-5').statiSquare({'width' : 200, 'type': 'pie', 'theme' : 'random' });
-$('#example-6').statiSquare({'width' : 200, 'type': 'ring', 'theme' : 'random' });
+$('#example-1').statiSquare({'type' : 'blocks', 'width' : 800, 'height' : 200, 'theme' : 'bird', 'responsive' : true});
+$('#example-2').statiSquare({'type' : 'bars', 'width' : 400, 'height' : 200, 'theme' : 'goldfish', 'hasValue' : true, 'sort' : 'descendant', 'responsive' : true});
+$('#example-3').statiSquare({'type': 'map', 'width' : 200, 'theme' : 'aurora',  'sort' : 'none', 'responsive' : true});
+$('#example-4').statiSquare({'type': 'map', 'width' : 400, 'height' : 300, 'theme' : 'bright', 'hasValue' : true });
+$('#example-5').statiSquare({'type': 'pie', 'width' : 200, 'theme' : 'random' });
+$('#example-6').statiSquare({'type': 'ring', 'width' : 200, 'theme' : 'random', 'strokeWidth' : 20 });

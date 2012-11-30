@@ -6,11 +6,14 @@
         //SOME DEFAULTS
 
         var settings = $.extend({
-            'width': 150,
+            'width': 400,
+                'height': 200,
+                'responsive': false,
                 'hasValue': false,
-                'type': 'dots',
+                'type': 'blocks',
                 'theme': 'random',
-                'sort': 'ascendant'
+                'sort': 'ascendant',
+                'strokeWidth': 10
         }, options);
 
         //METHODS
@@ -36,11 +39,11 @@
                 }
 
                 //sort elements if requested
-                if (settings.sort == "ascendant") {
+                if (settings.sort == "decendant") {
                     for (var i = 0; i < valuesArray.length; i++) {
                         valuesArray.sort().reverse();
                     }
-                } else if (settings.sort == "descendant") {
+                } else if (settings.sort == "ascendant") {
                     for (var i = 0; i < valuesArray.length; i++) {
                         valuesArray.sort();
                     }
@@ -48,11 +51,31 @@
 
                 innerElement.remove();
 
-                element.css('width', settings.width);
-                element.append("<div class='statiSquare-single'></div>").css('width', (settings.width));
+                if (settings.responsive) {
+                    element.css('width', '100%');
+                    element.append("<div class='statiSquare-single'></div>").css({
+                        'width': '100%',
+                            'height': settings.height
+                    });
+                } else {
+                    if (settings.type != 'ring' && settings.type != 'pie') {
+                        element.css('width', settings.width);
+                        element.append("<div class='statiSquare-single'></div>").css({
+                            'width': settings.width,
+                                'height': settings.height
+                        });
+                    } else {
+                        element.css('width', settings.width);
+                        element.append("<div class='statiSquare-single'></div>").css({
+                            'width': settings.width,
+                                'height': settings.width
+                        });
+                    }
+                }
+
                 var singleGraph = element.find('.statiSquare-single');
 
-                if (settings.type == 'dots') {
+                if (settings.type == 'blocks') {
 
                     /*************/
                     //STYLE DOTS
@@ -76,11 +99,19 @@
                         startCount += valuesArray[q];
 
                     }
-
+                    if (settings.responsive) {
+                        blocks.css({
+                            "width": '10%'
+                        })
+                    } else {
+                        blocks.css({
+                            "width": settings.width / 10
+                        })
+                    }
                     blocks.css({
-                        "width": settings.width / 10,
-                         "height": settings.width / 10
+                        "height": settings.height / 10
                     })
+
                 } else if (settings.type == 'map') {
 
                     /*************/
@@ -89,10 +120,15 @@
 
                     var offsetX = 0;
                     var offsetY = 0;
-                    var total = 100;
-                    var width = settings.width;
+                    if (settings.responsive) {
+                        var width = 100;
+                    } else {
+                        var width = 100;
+                    }
 
-                    element.css('height', settings.width);
+                    var height = settings.height;
+
+                    element.css('height', height);
 
                     for (var i = 0; i < valuesArray.length; i++) {
                         if (settings.hasValue) {
@@ -102,27 +138,30 @@
                         }
                         var current = $('.statiSquare-map').last();
                         current.css('background-color', getColor(settings.theme, i))
-                        var currentArea = ((width * width / 100) * valuesArray[i]); // in pixels
 
                         total -= valuesArray[i];
 
+
+                        var currentArea = (width * valuesArray[i]); // in pixels
                         if (i % 2 == 0) {
                             current.css({
-                                'top': offsetY,
-                                'left': offsetX,
-                                'width': currentArea / (width - offsetY), //this
-                                'height': width - offsetY
+                                'top': offsetY + '%',
+                                    'left': offsetX + '%',
+                                    'width': currentArea / (width - offsetY) + '%', //this
+                                'height': width - offsetY + '%'
                             })
                             offsetX += currentArea / (width - offsetY); // and this
                         } else {
                             current.css({
-                                'top': offsetY,
-                                    'left': offsetX,
-                                    'width': width - offsetX,
-                                    'height': currentArea / (width - offsetX)
+                                'top': offsetY + '%',
+                                    'left': offsetX + '%',
+                                    'width': width - offsetX + '%',
+                                    'height': currentArea / (width - offsetX) + '%'
                             })
                             offsetY += currentArea / (width - offsetX);
                         }
+
+
                     }
                 } else if (settings.type == 'bars') {
 
@@ -136,14 +175,22 @@
                         } else {
                             singleGraph.append("<div class='statiSquare-bars'></div>");
                         }
+                        if (settings.responsive) {
+                            $('.statiSquare-bars').last().css({
+                                'width': valuesArray[i] + "%"
+                            });
+                        } else {
+                            $('.statiSquare-bars').last().css({
+                                'width': settings.width / 100 * valuesArray[i]
+                            });
 
+                        }
                         $('.statiSquare-bars').last().css({
-                            'width': settings.width / 100 * valuesArray[i],
-                                'height': settings.width,
+                            'height': settings.height,
                                 'background-color': getColor(settings.theme, i)
                         });
                     }
-                } else if (settings.type == 'pie' || settings.type == 'ring') {
+                } else if (settings.type == 'pie') {
 
                     /*************/
                     //STYLE PIE // USES CANVAS ELEMENT!!
@@ -161,19 +208,14 @@
                         var valueAngle = valueToRadians(value);
                         var centerX = Math.floor(newCanvas.width / 2);
                         var centerY = Math.floor(newCanvas.height / 2);
-                        if (isRing) {
-                            radius = Math.floor((newCanvas.width / 2) / 100 * 70);
-                        } else {
-                            radius = Math.floor(newCanvas.width / 2);
-                        }
-
                         var arcSize = valueAngle;
                         var endingAngle = startingAngle + arcSize;
+                        var radius = settings.width / 2;
 
+                        context.lineWidth = 0;
                         context.beginPath();
                         context.moveTo(centerX, centerY);
                         context.arc(centerX, centerY, radius, startingAngle, endingAngle, false);
-                        context.closePath();
 
                         context.fillStyle = color;
                         context.fill();
@@ -194,8 +236,57 @@
                         var color = getColor(settings.theme, i);
                         drawSegment(valuesArray[i], color);
                     }
-                    if (settings.type == 'ring') {
-                        drawSegment(100, "#FFFFFF", true);
+
+                } else if (settings.type == 'ring') {
+
+                    /*************/
+                    //STYLE RING // USES CANVAS ELEMENT!!
+                    /*************/
+
+                    var newCanvas = document.createElement('canvas');
+                    newCanvas.height = settings.width;
+                    newCanvas.width = settings.width;
+                    singleGraph.append(newCanvas);
+                    var context = newCanvas.getContext('2d');
+                    var startingAngle = 0;
+
+                    var drawSegment = function (value, color) {
+                        context.save();
+                        var valueAngle = valueToRadians(value);
+                        var centerX = Math.floor(newCanvas.width / 2);
+                        var centerY = Math.floor(newCanvas.height / 2);
+                        var radius = settings.width / 2;
+                        var arcSize = valueAngle;
+                        var endingAngle = startingAngle + arcSize;
+
+                        context.lineWidth = settings.strokeWidth;
+                        context.beginPath();
+                        //context.moveTo(centerX, centerY);
+                        context.arc(centerX, centerY, radius - (settings.strokeWidth / 2), startingAngle, endingAngle, false);
+
+                        // context.fill();
+                        context.lineWidth = settings.strokeWidth;
+                        context.strokeStyle = color;
+                        context.stroke();
+
+                        context.fillStyle = color;
+                        //context.fill();
+
+                        startingAngle += valueAngle;
+
+                        context.restore();
+
+                    }
+
+                    var valueToRadians = function (value) {
+                        var degrees = 360 / 100 * value;
+                        var radians = degrees * 0.0174532925;
+                        return radians;
+                    }
+
+                    for (var i = 0; i < valuesArray.length; i++) {
+                        var color = getColor(settings.theme, i);
+                        drawSegment(valuesArray[i], color);
                     }
 
                 }

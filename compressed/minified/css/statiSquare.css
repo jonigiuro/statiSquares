@@ -2,7 +2,8 @@
 .block{
 	float: left;
 	background-color: #888;
-	border-radius: 50%;
+	border-radius: 2px;
+	outline:1px solid #fff;
 }
 
 .block.active{

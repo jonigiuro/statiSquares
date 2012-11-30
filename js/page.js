@@ -2,8 +2,8 @@
 var H = $(window).height();
 $(document).ready(function(){
 	$('.step').each(function(){
-		if($(this).height() < H - 220){
-			$(this).css('height', H - 250)
+		if($(this).height() < H - 160){
+			$(this).css('height', H - 200)
 		}
 	});
 })
@@ -15,27 +15,12 @@ $('.nav-item').click(function(e){
 	var element = $(this).find('.link').attr('href');
 	
 	$('html, body').animate({
-    	scrollTop: $("." + element).offset().top - 220
+    	scrollTop: $("." + element).offset().top - 160
  	}, 1000);
-/*
-	if(element == 'what-container'){
-		$('.inner-container').animate({
-			'margin-top' : 0
-		}, 1000);
-	}else if(element == 'how-container'){
-		$('.inner-container').animate({
-			'margin-top' : -140
-		}, 1000);
-	}else if(element == 'where-container'){
-		$('.inner-container').animate({
-			'margin-top' : -280
-		}, 1000);
-	}
-	*/
 })
 
 $(document).scroll(function(e){
-	var delta = 240;
+	var delta = 160;
 	var whatTop = $('.what-container').position().top - delta;
 	var howTop = $('.how-container').position().top - delta;
 	var whereTop = $('.where-container').position().top - delta;
@@ -46,11 +31,11 @@ $(document).scroll(function(e){
 		$('.nav-item').removeClass('active');
 		$('.what-nav').addClass('active');
 	}else if(currentScroll > whatTop && currentScroll < whereTop){
-		$('.inner-container').css({'margin-top' : -140});
+		$('.inner-container').css({'margin-top' : -100});
 		$('.nav-item').removeClass('active');
 		$('.how-nav').addClass('active');
 	}else if(currentScroll > whereTop){
-		$('.inner-container').css({'margin-top' : -280});
+		$('.inner-container').css({'margin-top' : -200});
 		$('.nav-item').removeClass('active');
 		$('.where-nav').addClass('active');
 	}

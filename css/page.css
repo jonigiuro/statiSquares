@@ -8,7 +8,7 @@ html{
 	position:fixed;
 	top:0;
 	width:100%;
-	height:81px;
+	height:60px;
 	background:#FFF;
 	z-index:98;
 }
@@ -23,12 +23,13 @@ html{
 }
 .logo{
 	float:left;
-	width:150px;
+	width:100px;
+	margin: 0;
 }
 .navigation{
 	float:right;
 	list-style:none;
-	margin-top:30px;
+	margin-top:20px;
 }
 .navigation .nav-item.active{
 	border-top:5px solid #c33f05;
@@ -42,13 +43,13 @@ html{
 #slider{
 	position: fixed;
 	width: 100%;
-	top: 80px;
-	height:140px;
+	top: 60px;
+	height:100px;
 	overflow: hidden !important;
 	z-index:99;
 }
 #slider .inner{
-	height: 140px;
+	height: 100px;
 }
 #slider .inner-container{
 	-webkit-transition: all 500ms ease;
@@ -81,7 +82,7 @@ html{
 
 #slider .information{
 	color :#FFF;
-	padding: 20px 20px;
+	padding: 3px 20px;
 	text-shadow: 0 0 5px rgba(0,0,0,.5);
 }
 #slider .information .title{
@@ -96,10 +97,10 @@ html{
 	width:100%;
 	max-width: 940px;
 	margin: 0 auto;
-	margin-top: 220px;
+	margin-top: 160px;
 	box-shadow:0 0 13px 0 rgba(0,0,0,.3);
 	background: url('../img/backnoise.png');
-	padding:0 20px;
+	/*padding:0 20px;*/
 	margin-bottom:100px;
 }
 .step{
@@ -141,38 +142,40 @@ html{
 .code{
 	font-family:'courier';
 }
-.arguments .titles{
+table .titles{
 	background-color:rgba(0,0,0,.2);
 	font-weight:bold;
 }
 .arg, .def, .val{
 	width:120px;
 }
-
+.arguments-row{
+	margin-top:50px;
+}
 .examples{
 	margin-top:50px;
 }
-.example-row{
-	margin-bottom:40px;
-	overflow:auto;
+.example-wrap{
+	padding:10px;
 }
 .single-example{
 	overflow:hidden;
 	background: rgba(0,0,0,.2);
 	border-radius:10px;
-	width:23%;
-	float:left;
-	margin-left:1.5%;
+	width:100%;
+	margin-bottom:20px;
+	/*float:left;*/
+	/*margin-left:1.5%;*/
 }
 .single-example.right{
 	
 }
+
 .single-example .title{
 	padding:10px;
 	margin:0;
 	background:rgba(0,0,0,.7);
 	color:#fff;
-	margin-bottom:20px;
 }
 .single-example .text{
 	padding:10px;
@@ -193,6 +196,27 @@ html{
 	width:300px;
 }
 
+.icons-container{
+	overflow:hidden;
+}
+.icons-container .list{
+	list-style:none;
+	float:right;
+}
+.icons-container .list .item{
+	display:inline-block;
+	margin-right:10px;
+	margin-top:10px;
+}
+.icons-container .list .link{
+	display:block;
+	width:50px;
+	height:50px;
+}
+.icons-container .twitter{
+	background: url('../img/twitter.png') center center no-repeat;
+}
+
 @media only screen and (min-width : 320px) and (max-width : 480px) {
 	
 	.image-box{
@@ -202,7 +226,7 @@ html{
 		width:90%;
 	}
 	.single-example{
-		width:47%;
+		width:100%;
 	}
 	#navbar{
 		height:40px;
@@ -220,5 +244,8 @@ html{
 	}
 	#wrapper{
 		margin-top:40px;
+	}
+	.semi{
+		display:none;
 	}
 }

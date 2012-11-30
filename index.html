@@ -3,7 +3,7 @@
 	<head>
 		<meta charset="utf-8">
 		<title>StatiSquares</title>
-		<meta name="viewport" content="width=device-width">
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 		<link href="css/bootstrap.min.css" media="all" rel="stylesheet" />
 		<link href='http://fonts.googleapis.com/css?family=Archivo+Narrow:400,400italic,700,700italic' rel='stylesheet' type='text/css'>
 		<link href="css/page.css" media="all" rel="stylesheet" />
@@ -21,7 +21,7 @@
 					<li class="nav-item">|</li>
 					<li class="nav-item how-nav"><a class="link internal" href="how-container">How do I use it?</a></li>
 					<li class="nav-item">|</li>
-					<li class="nav-item where-nav"><a class="link internal" href="where-container">Where can I get it?</a></li>
+					<li class="nav-item where-nav"><a class="link internal" href="where-container">Download</a></li>
 				</ul>
 			</div>
 		</nav>
@@ -32,7 +32,7 @@
 					<div class="container">
 						<div class="information">
 							<h2 class="title">
-								Your statistics
+								Your statistics on every device
 							</h2>
 							<h3 class="subtitle">
 								In one line of JavaScript
@@ -77,7 +77,7 @@
 			<div class="step what-container">
 				<div class="description">
 					<h2 class="title">
-						It's a lightweight statistics visualizer plugin for jQuery
+						It's a lightweight <em>responsive</em> statistics visualizer plugin for jQuery
 					</h2>
 					<p class="text">
 						It's easily set up with a couple of <span class="code">span</span> elements (one for each value, actually) and one line of javascript for initialization.<br />
@@ -98,10 +98,10 @@
 					</div>
 					<div class="description">
 						<h2 class="title">
-							Is it complicated?
+							I have no time!
 						</h2>
 						<p class="text">
-							<strong>Not at all!</strong> It's easily set up with a couple of <span class="code">span</span> elements (one for each value, actually) and one line of JavaScript for initialization (which can easily be copy-pasted from this site).<br />
+							<strong>Don't worry!</strong> It's easily and quickly set up with a couple of <span class="code">span</span> elements (one for each value, actually) and one line of JavaScript for initialization (which can easily be copy-pasted from this site).<br />
 							Other than that you can just sit down and relax, it'll do all the work for you.<br />
 							It comes with four built-in color schemes and four visualization methods but it's open to personaliation for new colors or interactions.
 						</p>
@@ -146,24 +146,207 @@
 				</p>
 					<pre><code><span class="code">$('#example-<em>n</em>').statiSquare({'width' : 200, 'type': 'map', 'theme' : 'aurora', 'hasValue' : true });</span></code></pre>
 				
-
+					<div class="full-row arguments-row">
+						<h4 class="title">
+							Options and arguments
+						</h4>
+						<table class="arguments table">
+							<tr class="titles">
+								<td class="single-label arg">
+									Argument name
+								</td>
+								<td class="single-label def">
+									Default value
+								</td>
+								<td class="single-label val">
+									Values
+								</td>
+								<td class="single-label desc semi">
+									Description
+								</td>
+							</tr>
+							<tr class="values">
+								<td class="single-label">
+									Width &raquo; integer
+								</td>
+								<td class="single-label">
+									150
+								</td>
+								<td class="single-label">
+									any positive integer number
+								</td>
+								<td class="single-label semi">
+									This value sets the width (in pixels) of the displayed graph. Please note that this graphs are square based so this value also decides the graph's width. Future improvements may include the possibility to also decide a width.
+								</td>
+								</tr>
+								<tr class="values">
+									<td class="single-label">
+										hasValue &raquo; boolean
+									</td>
+									<td class="single-label">
+										false
+									</td>
+									<td class="single-label">
+										true | false
+									</td>
+									<td class="single-label semi">
+										Show (true) or do NOT show (false) the value of each element in the graph. This attribute only works for bar graphs and map graphs.
+									</td>
+								</tr>
+								<tr class="values">
+									<td class="single-label">
+										type &raquo; string
+									</td>
+									<td class="single-label">
+										"dots"
+									</td>
+									<td class="single-label">
+										"dots" | "map" | "bars" | "pie" | "ring"
+									</td>
+									<td class="single-label semi">
+										Decides the style of the generated graph. All the styles can be seen on the exmples above. The "Pie" and the "Ring" use the html5 canvas element, so browser support is not guaranteed for older versions.
+									</td>
+								</tr>
+								<tr class="values">
+									<td class="single-label">
+										theme &raquo; string
+									</td>
+									<td class="single-label">
+										"random"
+									</td>
+									<td class="single-label">
+										"aurora" | "bird" | "goldfish" | "sepia" | "bright" | "random" | "custom"
+									</td>
+									<td class="single-label semi">
+										Sets the color scheme of the generated graph. "Random" will generate a random color for each element. "Custom" won't set the colors, you can do it freely in you stylesheet.
+									</td>
+								</tr>
+								<tr class="values">
+									<td class="single-label">
+										sort &raquo; string
+									</td>
+									<td class="single-label">
+										"ascendant"
+									</td>
+									<td class="single-label">
+										"ascendant" | "descendant" | "none"
+									</td>
+									<td class="single-label semi">
+										Sorts values in an ascendant or descendant way. If you set it to 'none' (or anything else), the graph will be printed exactly as you wrote in your HTML.
+									</td>
+								</tr>
+								<tr class="values">
+									<td class="single-label">
+										Responsive &raquo; boolean
+									</td>
+									<td class="single-label">
+										false
+									</td>
+									<td class="single-label">
+										true | false
+									</td>
+									<td class="single-label semi">
+										Decides if the graph will be flexible and responsive or it will have a fixed width.
+									</td>
+								</tr>
+								<tr class="values">
+									<td class="single-label">
+										strokeWidth &raquo; integer
+									</td>
+									<td class="single-label">
+										20
+									</td>
+									<td class="single-label">
+										Any positive integer number
+									</td>
+									<td class="single-label semi">
+										Sets the width of the stroke for the Pie chart.
+									</td>
+								</tr>
+						</table>
+					</div>
 				
 				<div class="examples">
-					<!--row-->
-					<div class="example-row">
-						<h4 class="title">
-							The best way to learn is to look at some examples, so here we go!
-						</h4>
-						<div class="single-example">
-							
-							<p class="title">
-								Example 1
-							</p>
-							<p class="text">
-								A dotted style graph.<br />
-								No values<br />
-								Theme : bird
-							</p>
+					
+					<h4 class="title">
+						The best way to learn is to look at some examples, so here we go!
+					</h4>
+					<div class="single-example">
+						
+						<h5 class="title">
+							Example 1
+						</h5>
+						
+						<table class="example-table table">
+							<tr class="titles">
+								<td class="single-label arg">
+									Argument name
+								</td>
+								<td class="single-label def">
+									Value
+								</td>
+								<td class="single-label def semi">
+									Effect
+								</td>
+							</tr>
+							<tr>
+								<td class="single-label arg">
+									Type
+								</td>
+								<td class="single-label def">
+									Blocks
+								</td>
+								<td class="single-label def semi">
+									Sets the look of the graph to this blocky thing
+								</td>
+							</tr>
+							<tr>
+								<td class="single-label arg">
+									Width
+								</td>
+								<td class="single-label def">
+									800
+								</td>
+								<td class="single-label def semi">
+									Sets the width of the graph at 800 pixels
+								</td>
+							</tr>
+							<tr>
+								<td class="single-label arg">
+									Height
+								</td>
+								<td class="single-label def">
+									200
+								</td>
+								<td class="single-label def semi">
+									Sets the height of the graph at 200 pixels
+								</td>
+							</tr>
+							<tr>
+								<td class="single-label arg">
+									Theme
+								</td>
+								<td class="single-label def">
+									Bird
+								</td>
+								<td class="single-label def semi">
+									Sets the color theme of the graph to "bird"
+								</td>
+							</tr>
+							<tr>
+								<td class="single-label arg">
+									Responsive
+								</td>
+								<td class="single-label def">
+									True
+								</td>
+								<td class="single-label def semi">
+									Tells the graph to be responsive. If you set a width (as I did in this example) and then set responsive to true, the width in pixels will be ignored and the graph will be 100% wide.
+								</td>
+							</tr>
+						</table>
+						
+						<div class="example-wrap">
 							<div id="example-1" class="example-graph">
 								<span class="value">15%</span>
 								<span class="value">30%</span>
@@ -172,20 +355,108 @@
 								<span class="value">10%</span>
 								<span class="value">10%</span>
 							</div>
-							<div class="query">
-								<p class="text"><span class="code">$('#example-1').statiSquare({'width' : 200, 'type' : 'dots', 'theme' : 'bird'});</span></p>
-							</div>
 						</div>
-						<div class="single-example right">
-							
-							<p class="title">
-								Example 2
-							</p>
-							<p class="text">
-								A vertical style graph.<br />
-								With values<br />
-								Theme : goldfish
-							</p>
+						<div class="query">
+							<p class="text"><span class="code">$('#example-1').statiSquare({'type' : 'blocks', 'width' : 800, 'height' : 200, 'theme' : 'bird', 'responsive' : true});</span></p>
+						</div>
+					</div>
+					<div class="single-example right">
+						
+						<h5 class="title">
+							Example 2
+						</h5>
+						
+						<table class="example-table table">
+							<tr class="titles">
+								<td class="single-label arg">
+									Argument name
+								</td>
+								<td class="single-label def">
+									Value
+								</td>
+								<td class="single-label def semi">
+									Effect
+								</td>
+							</tr>
+							<tr>
+								<td class="single-label arg">
+									Type
+								</td>
+								<td class="single-label def">
+									Bars
+								</td>
+								<td class="single-label def semi">
+									Sets the look of the graph to bars
+								</td>
+							</tr>
+							<tr>
+								<td class="single-label arg">
+									Width
+								</td>
+								<td class="single-label def">
+									400
+								</td>
+								<td class="single-label def semi">
+									Sets the width of the graph at 400 pixels
+								</td>
+							</tr>
+							<tr>
+								<td class="single-label arg">
+									Height
+								</td>
+								<td class="single-label def">
+									200
+								</td>
+								<td class="single-label def semi">
+									Sets the height of the graph at 200 pixels
+								</td>
+							</tr>
+							<tr>
+								<td class="single-label arg">
+									Theme
+								</td>
+								<td class="single-label def">
+									Goldfish
+								</td>
+								<td class="single-label def semi">
+									Sets the color theme of the graph to "goldfish"
+								</td>
+							</tr>
+							<tr>
+								<td class="single-label arg">
+									Responsive
+								</td>
+								<td class="single-label def">
+									True
+								</td>
+								<td class="single-label def semi">
+									Tells the graph to be responsive. If you set a width (as I did in this example) and then set responsive to true, the width in pixels will be ignored and the graph will be 100% wide.
+								</td>
+							</tr>
+							<tr>
+								<td class="single-label arg">
+									hasValue
+								</td>
+								<td class="single-label def">
+									True
+								</td>
+								<td class="single-label def semi">
+									Tells the plugin to include values inside the graph.
+								</td>
+							</tr>
+							<tr>
+								<td class="single-label arg">
+									Sort
+								</td>
+								<td class="single-label def">
+									Descendant
+								</td>
+								<td class="single-label def semi">
+									Tells the plugin yo want to sort the values from the highest to the lowest.
+								</td>
+							</tr>
+						</table>
+						<div class="example-wrap">
 							<div id="example-2" class="example-graph">
 								<span class="value">15%</span>
 								<span class="value">30%</span>
@@ -194,21 +465,87 @@
 								<span class="value">10%</span>
 								<span class="value">10%</span>
 							</div>
-							<div class="query">
-								<p class="text"><span class="code">$('#example-2').statiSquare({'width' : 200, 'type' : 'bars', 'theme' : 'goldfish', 'hasValue' : true, 'sort' : 'descendant'});</span></p>
-							</div>
 						</div>
-					
-						<div class="single-example">
-							
-							<p class="title">
-								Example 3
-							</p>
-							<p class="text">
-								Rectangles.<br />
-								Nein values<br />
-								Theme : aurora
-							</p>
+						<div class="query">
+							<p class="text"><span class="code">$('#example-2').statiSquare({'type' : 'bars', 'width' : 400, 'height' : 200, 'theme' : 'goldfish', 'hasValue' : true, 'sort' : 'descendant', 'responsive' : true});</span></p>
+						</div>
+					</div>
+				
+					<div class="single-example">
+						
+						<h5 class="title">
+							Example 3
+						</h5>
+						
+						<table class="example-table table">
+							<tr class="titles">
+								<td class="single-label arg">
+									Argument name
+								</td>
+								<td class="single-label def">
+									Value
+								</td>
+								<td class="single-label def semi">
+									Effect
+								</td>
+							</tr>
+							<tr>
+								<td class="single-label arg">
+									Type
+								</td>
+								<td class="single-label def">
+									Map
+								</td>
+								<td class="single-label def semi">
+									Sets the look of the graph to Map
+								</td>
+							</tr>
+							<tr>
+								<td class="single-label arg">
+									Width
+								</td>
+								<td class="single-label def">
+									200
+								</td>
+								<td class="single-label def semi">
+									Sets the width of the graph at 400 pixels
+								</td>
+							</tr>
+							<tr>
+								<td class="single-label arg">
+									Theme
+								</td>
+								<td class="single-label def">
+									Aurora
+								</td>
+								<td class="single-label def semi">
+									Sets the color theme of the graph to "aurora"
+								</td>
+							</tr>
+							<tr>
+								<td class="single-label arg">
+									Responsive
+								</td>
+								<td class="single-label def">
+									True
+								</td>
+								<td class="single-label def semi">
+									Tells the graph to be responsive. If you set a width (as I did in this example) and then set responsive to true, the width in pixels will be ignored and the graph will be 100% wide.
+								</td>
+							</tr>
+							<tr>
+								<td class="single-label arg">
+									sort
+								</td>
+								<td class="single-label def">
+									none
+								</td>
+								<td class="single-label def semi">
+									Tells the plugin to not sort tha values in any manner. Keep as they are in the HTML
+								</td>
+							</tr>
+						</table>
+						<div class="example-wrap">
 							<div id="example-3" class="example-graph">
 								<span class="value">15%</span>
 								<span class="value">30%</span>
@@ -217,20 +554,87 @@
 								<span class="value">10%</span>
 								<span class="value">10%</span>
 							</div>
-							<div class="query">
-								<p class="text"><span class="code">$('#example-3').statiSquare({'width' : 200, 'type': 'map', 'theme' : 'aurora',  'sort' : 'none'});</span></p>
-							</div>
 						</div>
-						<div class="single-example right">
-							
-							<p class="title">
-								Example 4
-							</p>
-							<p class="text">
-								Rectangular shapes<br />
-								With values<br />
-								Theme : bright
-							</p>
+						<div class="query">
+							<p class="text"><span class="code">$('#example-3').statiSquare({'type': 'map', 'width' : 200, 'theme' : 'aurora',  'sort' : 'none', 'responsive' : true});</span></p>
+						</div>
+					</div>
+					<div class="single-example right">
+						
+						<h5 class="title">
+							Example 4
+						</h5>
+						
+						<table class="example-table table">
+							<tr class="titles">
+								<td class="single-label arg">
+									Argument name
+								</td>
+								<td class="single-label def">
+									Value
+								</td>
+								<td class="single-label def semi">
+									Effect
+								</td>
+							</tr>
+							<tr>
+								<td class="single-label arg">
+									Type
+								</td>
+								<td class="single-label def">
+									Map
+								</td>
+								<td class="single-label def semi">
+									Sets the look of the graph to map
+								</td>
+							</tr>
+							<tr>
+								<td class="single-label arg">
+									Width
+								</td>
+								<td class="single-label def">
+									400
+								</td>
+								<td class="single-label def semi">
+									Sets the width of the graph at 400 pixels
+								</td>
+							</tr>
+							<tr>
+								<td class="single-label arg">
+									Height
+								</td>
+								<td class="single-label def">
+									300
+								</td>
+								<td class="single-label def semi">
+									Sets the height of the graph at 200 pixels
+								</td>
+							</tr>
+							<tr>
+								<td class="single-label arg">
+									Theme
+								</td>
+								<td class="single-label def">
+									Bright
+								</td>
+								<td class="single-label def semi">
+									Sets the color theme of the graph to "bright"
+								</td>
+							</tr>
+							<tr>
+								<td class="single-label arg">
+									hasValue
+								</td>
+								<td class="single-label def">
+									True
+								</td>
+								<td class="single-label def semi">
+									Tells the plugin to include values inside the graph.
+								</td>
+							</tr>
+						</table>
+
+						<div class="example-wrap">
 							<div id="example-4" class="example-graph">
 								<span class="value">15%</span>
 								<span class="value">30%</span>
@@ -239,23 +643,65 @@
 								<span class="value">10%</span>
 								<span class="value">10%</span>
 							</div>
-							<div class="query">
-								<p class="text"><span class="code">$('#example-4').statiSquare({'width' : 200, 'type': 'map', 'theme' : 'bright', 'hasValue' : true });</span></p>
-							</div>
+						</div>
+						<div class="query">
+							<p class="text"><span class="code">$('#example-4').statiSquare({'type': 'map', 'width' : 400, 'height' : 300, 'theme' : 'bright', 'hasValue' : true });</span></p>
 						</div>
 					</div>
-					<!--row-->
-					<div class="example-row">
-						<div class="single-example">
-							
-							<p class="title">
-								Example 5
-							</p>
-							<p class="text">
-								Rectangles.<br />
-								Nein values<br />
-								Theme : random
-							</p>
+					
+					<div class="single-example">
+						
+						<h5 class="title">
+							Example 5
+						</h5>
+						
+						<table class="example-table table">
+							<tr class="titles">
+								<td class="single-label arg">
+									Argument name
+								</td>
+								<td class="single-label def">
+									Value
+								</td>
+								<td class="single-label def semi">
+									Effect
+								</td>
+							</tr>
+							<tr>
+								<td class="single-label arg">
+									Type
+								</td>
+								<td class="single-label def">
+									Pie
+								</td>
+								<td class="single-label def semi">
+									Sets the look of the graph to pie
+								</td>
+							</tr>
+							<tr>
+								<td class="single-label arg">
+									Width
+								</td>
+								<td class="single-label def">
+									200
+								</td>
+								<td class="single-label def semi">
+									Sets the width of the graph at 200 pixels. For Pie and Ring charts you can't set the width as they are cirles
+								</td>
+							</tr>
+							<tr>
+								<td class="single-label arg">
+									Theme
+								</td>
+								<td class="single-label def">
+									Random
+								</td>
+								<td class="single-label def semi">
+									Tells the script to randomly choose colors.
+								</td>
+							</tr>
+						</table>
+						<div class="example-wrap">
 							<div id="example-5" class="example-graph">
 								<span class="value">15%</span>
 								<span class="value">30%</span>
@@ -264,20 +710,75 @@
 								<span class="value">10%</span>
 								<span class="value">10%</span>
 							</div>
-							<div class="query">
-								<p class="text"><span class="code">$('#example-5').statiSquare({'width' : 200, 'type': 'pie', 'theme' : 'random' });</span></p>
-							</div>
 						</div>
-						<div class="single-example right">
-							
-							<p class="title">
-								Example 6
-							</p>
-							<p class="text">
-								Rectangular shapes<br />
-								With values<br />
-								Theme : random
-							</p>
+						<div class="query">
+							<p class="text"><span class="code">$('#example-5').statiSquare({'type': 'pie', 'width' : 200, 'theme' : 'random' });</span></p>
+						</div>
+					</div>
+					<div class="single-example right">
+						
+						<h5 class="title">
+							Example 6
+						</h5>
+						
+						<table class="example-table table">
+							<tr class="titles">
+								<td class="single-label arg">
+									Argument name
+								</td>
+								<td class="single-label def">
+									Value
+								</td>
+								<td class="single-label def semi">
+									Effect
+								</td>
+							</tr>
+							<tr>
+								<td class="single-label arg">
+									Type
+								</td>
+								<td class="single-label def">
+									Ring
+								</td>
+								<td class="single-label def semi">
+									Sets the look of the graph to ring
+								</td>
+							</tr>
+							<tr>
+								<td class="single-label arg">
+									Width
+								</td>
+								<td class="single-label def">
+									100
+								</td>
+								<td class="single-label def semi">
+									Sets the width of the graph at 100 pixels. For Pie and Ring charts you can't set the width as they are cirles
+								</td>
+							</tr>
+							<tr>
+								<td class="single-label arg">
+									Theme
+								</td>
+								<td class="single-label def">
+									Random
+								</td>
+								<td class="single-label def semi">
+									Tells the script to randomly choose colors.
+								</td>
+							</tr>
+							<tr>
+								<td class="single-label arg">
+									StrokeWidth
+								</td>
+								<td class="single-label def">
+									20
+								</td>
+								<td class="single-label def semi">
+									Tells the script the width of the stroke (only works on Pie charts)
+								</td>
+							</tr>
+						</table>
+						<div class="example-wrap">
 							<div id="example-6" class="example-graph">
 								<span class="value">15%</span>
 								<span class="value">30%</span>
@@ -286,103 +787,13 @@
 								<span class="value">10%</span>
 								<span class="value">10%</span>
 							</div>
-							<div class="query">
-								<p class="text"><span class="code">$('#example-6').statiSquare({'width' : 200, 'type': 'ring', 'theme' : 'random' });</span></p>
-							</div>
+						</div>
+						<div class="query">
+							<p class="text"><span class="code">$('#example-6').statiSquare({'type': 'ring', 'width' : 200, 'theme' : 'random', 'strokeWidth' : 20 });</span></p>
 						</div>
 					</div>
+					
 				</div>
-			</div>
-			<div class="full-row">
-				<h4 class="title">
-					Options and arguments
-				</h4>
-				<table class="arguments table">
-					<tr class="titles">
-						<td class="single-label arg">
-							Argument name
-						</td>
-						<td class="single-label def">
-							Default value
-						</td>
-						<td class="single-label val">
-							Values
-						</td>
-						<td class="single-label desc">
-							Description
-						</td>
-					</tr>
-					<tr class="values">
-						<td class="single-label">
-							Width &raquo; integer
-						</td>
-						<td class="single-label">
-							150
-						</td>
-						<td class="single-label">
-							any positive integer number
-						</td>
-						<td class="single-label">
-							This value sets the width (in pixels) of the displayed graph. Please note that this graphs are square based so this value also decides the graph's width. Future improvements may include the possibility to also decide a width.
-						</td>
-						</tr>
-						<tr class="values">
-							<td class="single-label">
-								hasValue &raquo; boolean
-							</td>
-							<td class="single-label">
-								false
-							</td>
-							<td class="single-label">
-								true | false
-							</td>
-							<td class="single-label">
-								Show (true) or do NOT show (false) the value of each element in the graph. This attribute only works for bar graphs and map graphs.
-							</td>
-						</tr>
-						<tr class="values">
-							<td class="single-label">
-								type &raquo; string
-							</td>
-							<td class="single-label">
-								"dots"
-							</td>
-							<td class="single-label">
-								"dots" | "map" | "bars" | "pie" | "ring"
-							</td>
-							<td class="single-label">
-								Decides the style of the generated graph. All the styles can be seen on the exmples above. The "Pie" and the "Ring" use the html5 canvas element, so browser support is not guaranteed for older versions.
-							</td>
-						</tr>
-						<tr class="values">
-							<td class="single-label">
-								theme &raquo; string
-							</td>
-							<td class="single-label">
-								"random"
-							</td>
-							<td class="single-label">
-								"aurora" | "bird" | "goldfish" | "sepia" | "bright" | "random" | "custom"
-							</td>
-							<td class="single-label">
-								Sets the color scheme of the generated graph. "Random" will generate a random color for each element. "Custom" won't set the colors, you can do it freely in you stylesheet.
-							</td>
-						</tr>
-						<tr class="values">
-							<td class="single-label">
-								sort &raquo; string
-							</td>
-							<td class="single-label">
-								"ascendant"
-							</td>
-							<td class="single-label">
-								"ascendant" | "descendant" | "none"
-							</td>
-							<td class="single-label">
-								Sorts values in an ascendant or descendant way. If you set it to 'none' (or anything else), the graph will be printed exactly as you wrote in your HTML.
-							</td>
-						</tr>
-				</table>
 			</div>
 		</div>
 
@@ -400,9 +811,18 @@
 					<img class="image" src="img/quest-where.png" alt="question mark">
 				</div>
 			</div>
+			<div class="icons-container">
+			<ul class="list">
+				<li class="item github"><a class="link" href="https://github.com/jonigiuro/statiSquares" ><img src="img/github.png" alt="github"></a></li>
+				<li class="item facebook"><a class="link" href="http://www.facebook.com/col.joni"><img src="img/facebook.png" alt="facebook"></a></li>
+				<li class="item twitter"><a class="link" href="https://twitter.com/JoniGiuro"><img src="img/twitter.png" alt="twitter"></a></li>
+			</ul>
 		</div>
+		</div>
+
 		<!--<script src="js/bootstrap.min.js"></script>-->
-		<script src="js/jquery172.js"></script>
+		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+		<!--<script src="js/jquery172.js"></script>-->
 		<script src="js/page.js"></script>
 		<script src="js/statiSquare.min.js"></script>
 		<script src="js/usage.js"></script>
