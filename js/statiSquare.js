@@ -39,7 +39,7 @@
                 }
 
                 //sort elements if requested
-                if (settings.sort == "decendant") {
+                if (settings.sort == "descendant") {
                     for (var i = 0; i < valuesArray.length; i++) {
                         valuesArray.sort().reverse();
                     }
