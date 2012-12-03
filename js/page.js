@@ -20,7 +20,7 @@ $('.nav-item').click(function(e){
 })
 
 $(document).scroll(function(e){
-	var delta = 160;
+	var delta = 170;
 	var whatTop = $('.what-container').position().top - delta;
 	var howTop = $('.how-container').position().top - delta;
 	var whereTop = $('.where-container').position().top - delta;
@@ -39,6 +39,5 @@ $(document).scroll(function(e){
 		$('.nav-item').removeClass('active');
 		$('.where-nav').addClass('active');
 	}
-	
 	
 })
