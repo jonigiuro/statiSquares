@@ -21,11 +21,11 @@
         var methods = {
             init: function () {
                 var element = $(this);
-                var innerElement = $(this).find('.value');
+                var innerElement = $(this).find('.statiSquare-value');
                 var valuesArray = new Array();
                 var total = 0;
 
-                element.find('.value').each(function () {
+                element.find('.statiSquare-value').each(function () {
                     value = parseInt($(this).html().replace("%", ""));
                     total += value;
                     valuesArray.push(value);
